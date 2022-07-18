@@ -27,7 +27,7 @@ class TestProductsModel(TestCase):
     def setUp(self):
         Category.objects.create(name='django', slug='django')
         User.objects.create(username='admin')
-        self.data1 = Product.objects.create(category_id=1, title='item test', created_by_id=1,
+        self.data1 = Product.objects.create(category_id=1, item='item test', created_by_id=1,
                                             slug='item-test', price='20.00', image='django')
 
     def test_products_model_entry(self):

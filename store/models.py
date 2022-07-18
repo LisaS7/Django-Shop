@@ -19,8 +19,8 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_creator')
-    title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255, default='admin')
+    item = models.CharField(max_length=255) # tutorial: title
+    type = models.CharField(max_length=255, default='admin') # tutorial: author
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/')
     slug = models.SlugField(max_length=255)
