@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True)
@@ -14,13 +15,13 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_creator')
-    item = models.CharField(max_length=255) # tutorial: title
-    short_note = models.CharField(max_length=255) # tutorial: author
+    item = models.CharField(max_length=255)  # tutorial: title
+    short_note = models.CharField(max_length=255)  # tutorial: author
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/')
     slug = models.SlugField(max_length=255)
