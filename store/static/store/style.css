@@ -1,0 +1,11 @@
+.image-detail {
+    width: 300px;
+}
+
+.image-list {
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: 250px;
+    object-fit: contain;
+}

@@ -5,12 +5,12 @@
     <main class="pt-5">
         <div class="row g-3">
             <div class="col-md-5 col-lg-5 order-md-first bg-light">
-                <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image.url }}">
+                <img class="image-detail img-fluid mx-auto d-block" alt="Responsive image" src="{{ product.image.url }}">
             </div>
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
                 <h1 class="mb-0 h4">{{ product.item }}</h1>
                 <p><span class="lead">{{ product.short_note }}</span></p>
-                <p>{{ product.description|slice:":355" }}...</p>
+                <p>{{ product.description|linebreaks }}</p>
                 <div class="border">
                     <div class="col border-bottom">
                         <div class="row p-3">
