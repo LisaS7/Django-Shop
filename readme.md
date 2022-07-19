@@ -5,4 +5,5 @@ I've played around with Django in the past but I felt like a structured tutorial
 What I learned:
 * Configuring the admin view display fields and filters.
 * Using the coverage library to help identify where tests are required.
-* Setting up test data for the models
+* Setting up test data for the models.
+* Using a context processor to access data in all templates.
