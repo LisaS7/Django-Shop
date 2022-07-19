@@ -13,19 +13,19 @@
 
                 {% for product in products %}
                     <div class="col">
-                        <div class="card shadow-sm">
+                        <div class="card shadow-sm h-100">
                             <img class="image-list" alt="Responsive image" src="{{ product.image.url }}">
                             <div class="card-body">
-                            <p class="card-text">
-                                <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.item }}</a>
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">{{ product.short_note }}</small>
+                                <p class="card-text">
+                                    <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.item }}</a>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">{{ product.short_note }}</small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-
             </div>
         </div>
     </div>
