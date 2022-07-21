@@ -9,3 +9,4 @@ What I learned:
 * Setting up test data.
 * Testing views using the Client object.
 * Fixing import statements using isort.
+* Working with sessions.
