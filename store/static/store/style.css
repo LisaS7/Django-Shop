@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+    font-family: 'Kanit', sans-serif !important;
+}
+
 html {
     background: url(../store/background.jpg) no-repeat;
     background-size: cover;
