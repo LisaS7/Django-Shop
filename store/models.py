@@ -29,7 +29,7 @@ class Product(models.Model):
     item = models.CharField(max_length=255)  # tutorial: title
     short_note = models.CharField(max_length=255)  # tutorial: author
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', default='images/default.png')
     slug = models.SlugField(max_length=255)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     in_stock = models.BooleanField(default=True)
@@ -48,4 +48,3 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.item
-
