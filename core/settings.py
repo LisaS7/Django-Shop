@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-grq1q#vl8)wpi3*$g2)931$bk15v=kf3l^co_%s#w-d)4iv99w
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['testdomain.com', '127.0.0.1']
+ALLOWED_HOSTS = ['testdomain.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -92,7 +92,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
