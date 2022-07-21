@@ -41,6 +41,13 @@
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search (TBC)</button>
+                    </form>
+                    
+                    <a class="basket" href="{% url "store_basket:basket_summary" %}">
+                        <img class="mx-3" src="{% static 'store/basket_icon.png' %}">
+                        <div class="w-100"></div>
+                        <p class="">5</p>
+                    </a>
                 </div>
             </div>
         </nav>
