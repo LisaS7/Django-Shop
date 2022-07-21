@@ -10,6 +10,12 @@ class Basket:
             basket = self.session['session-key'] = {}
         self.basket = basket
 
+    def __len__(self):
+        """
+        Get basket data and count the number of items
+        """
+        return sum(item['quantity'] for item in self.basket.values())
+
     def add(self, product, quantity):
         """
         Adding and updating the session basket data

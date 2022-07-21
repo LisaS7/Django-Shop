@@ -46,7 +46,15 @@
                     <a class="basket" href="{% url "store_basket:basket_summary" %}">
                         <img class="mx-3" src="{% static 'store/basket_icon.png' %}">
                         <div class="w-100"></div>
-                        <p class="">5</p>
+                        <p id="basket-quantity">
+                            {% with total_quantity=basket|length %}
+                                {% if total_quantity > 0 %}
+                                    {{ total_quantity }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            {% endwith %}
+                        </p>
                     </a>
                 </div>
             </div>
