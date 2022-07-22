@@ -54,6 +54,15 @@ class Basket:
             del self.basket[product_id]
             self.save()
 
+    def update(self, product, quantity):
+        """
+        Update quantity in basket session data
+        """
+        product_id = str(product)
+        if product_id in self.basket:
+            self.basket[product_id]['quantity'] = quantity
+            self.save()
+
     def save(self):
         self.session.modified = True
 

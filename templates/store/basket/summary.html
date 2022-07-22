@@ -10,7 +10,7 @@
 
         {% for item in basket %}
             {% with product=item.product %}
-                <div class="row mb-4 border">
+                <div data-index="{{ product.id }}" class="row mb-4 border product-item">
                     <div class="col-md-3 col-lg-2 order-md-first bg-light">
                         <img class="img-fluid mx-auto d-block" alt="Responsive image" src="{{ product.image.url }}">
                     </div>
@@ -23,7 +23,7 @@
                             <div class="col border-bottom">
                                 <div class="row p-3">
                                     <div class="col-6">Standard model</div>
-                                    <div class="col-6 text-end"><span class="h4 fw-bold">₹{{ product.price }}</span></div>
+                                    <div class="col-6 text-end"><span class="h4 fw-bold">₹{{ item.total_price }}</span></div>
                                 </div>
                             </div>
                             <div class="col">
@@ -39,8 +39,8 @@
                                         </select>
                                     </div>
                                     <div class="col-6 text-end">
-                                        <button type="button" id="add-button" value="{{ product.id }}" class="btn btn-secondary btn-sm">
-                                            Add to basket
+                                        <button type="button" data-index="{{ product.id }}" class="update-button btn btn-secondary btn-sm">
+                                            Update
                                         </button>
                                         <button type="button" data-index="{{ product.id }}" class="delete-button btn btn-warning btn-sm">
                                             Delete
@@ -61,8 +61,10 @@
 </main>
 
 <script>
+    // Delete Item
     $(document).on('click', '.delete-button', function (e) {
         e.preventDefault();
+        var prodid = $(this).data('index');
         $.ajax({
             type: 'POST',
             url: '{% url "store_basket:basket_delete" %}',
@@ -72,7 +74,30 @@
                 action: 'post'
             },
             success: function (json) {
-                document.getElementById('basket-quantity').innerHTML = json.quantity
+                $('.product-item[data-index="' + prodid + '"]').remove();
+            },
+            error: function (xhr, errmsg, err) {
+
+            }
+        });
+    })
+
+
+    // Update Item
+    $(document).on('click', '.update-button', function (e) {
+        e.preventDefault();
+        var prodid = $(this).data('index');
+        $.ajax({
+            type: 'POST',
+            url: '{% url "store_basket:basket_update" %}',
+            data: {
+                productid: $(this).data('index'),
+                quantity: $('#select' + prodid + ' option:selected').text(),
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+                $('.product-item[data-index="' + prodid + '"]').remove();
             },
             error: function (xhr, errmsg, err) {
 
