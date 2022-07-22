@@ -23,7 +23,9 @@
                             <div class="col border-bottom">
                                 <div class="row p-3">
                                     <div class="col-6">Standard model</div>
-                                    <div class="col-6 text-end"><span class="h4 fw-bold">₹{{ item.total_price }}</span></div>
+                                    <div class="col-6 text-end">
+                                        <span class="h4 fw-bold">₹<div id="item-subtotal{{ product.id }}" class="d-inline-flex">{{ item.total_price }}</div></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col">
@@ -55,7 +57,7 @@
         {% endfor %}
 
         <div class="col-12 text-end">
-            <div class="h6 fw-bold">Sub Total: ₹<span id="subtotal" class="d-inline-flex">{{basket.get_total_price}}</span></div>
+            <div class="h6 fw-bold">Sub Total: ₹<div id="subtotal" class="d-inline-flex">{{basket.get_total_price}}</div></div>
         </div>
     </div>
 </main>
@@ -97,7 +99,9 @@
                 action: 'post'
             },
             success: function (json) {
-                $('.product-item[data-index="' + prodid + '"]').remove();
+                document.getElementById("basket-quantity").innerHTML = json.quantity
+                document.getElementById("item-subtotal" + prodid).innerHTML = json.itemtotal
+                document.getElementById("subtotal").innerHTML = json.subtotal
             },
             error: function (xhr, errmsg, err) {
 
