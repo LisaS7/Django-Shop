@@ -40,10 +40,14 @@ class Basket:
         """
         Adding and updating the session basket data
         """
-        product_id = product.id
-        if product_id not in self.basket:
+        product_id = str(product.id)
+
+        if product_id in self.basket:
+            self.basket[product_id]['quantity'] = quantity
+        else:
             self.basket[product_id] = {'price': str(product.price), 'quantity': int(quantity)}
-            self.save()
+
+        self.save()
 
     def delete(self, product):
         """

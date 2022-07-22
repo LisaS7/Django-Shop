@@ -11,6 +11,7 @@ def basket_summary(request):
     return render(request, 'store/basket/summary.html', {'basket': basket})
 
 
+# TODO: refactor add/delete/update to remove duplicate code
 def basket_add(request):
     basket = Basket(request)
     if request.POST.get('action') == 'post':
@@ -31,7 +32,8 @@ def basket_delete(request):
         basket.delete(product=product_id)
 
         basket_quantity = len(basket)
-        response = JsonResponse({'quantity': basket_quantity})
+        basket_total = basket.get_total_price()
+        response = JsonResponse({'quantity': basket_quantity, 'subtotal': basket_total})
         return response
 
 
