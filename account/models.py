@@ -34,10 +34,10 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=150, blank=True)
 
     # Delivery details
-    address = models.CharField(max_length=150)
-    city = models.CharField(max_length=150)
-    planet = models.CharField(max_length=150)
-    sector = models.CharField(max_length=150)
+    address = models.CharField(max_length=150, blank=True)
+    city = models.CharField(max_length=150, blank=True)
+    planet = models.CharField(max_length=150, blank=True)
+    sector = models.CharField(max_length=150, blank=True)
     commlink_line = models.CharField(max_length=20, blank=True)
 
     # User settings
