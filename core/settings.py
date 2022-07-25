@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-grq1q#vl8)wpi3*$g2)931$bk15v=kf3l^co_%s#w-d)4iv99w
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['testdomain.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['testdomain.com', '127.0.0.1', 'localhost', 'rodian-arms-shop.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
