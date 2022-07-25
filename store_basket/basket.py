@@ -1,5 +1,6 @@
-from store.models import Product
 from decimal import Decimal
+
+from store.models import Product
 
 
 class Basket:
@@ -36,7 +37,7 @@ class Basket:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
-    def add(self, product, quantity):
+    def add(self, product: int, quantity: int) -> None:
         """
         Adding and updating the session basket data
         """
@@ -49,7 +50,7 @@ class Basket:
 
         self.save()
 
-    def delete(self, product):
+    def delete(self, product: int) -> None:
         """
         Delete item from basket session data
         """
@@ -58,7 +59,7 @@ class Basket:
             del self.basket[product_id]
             self.save()
 
-    def update(self, product, quantity):
+    def update(self, product: int, quantity: int) -> None:
         """
         Update quantity in basket session data
         """
@@ -67,8 +68,8 @@ class Basket:
             self.basket[product_id]['quantity'] = quantity
             self.save()
 
-    def save(self):
+    def save(self) -> None:
         self.session.modified = True
 
-    def get_total_price(self):
+    def get_total_price(self) -> Decimal:
         return sum(Decimal(item['price']) * item['quantity'] for item in self.basket.values())

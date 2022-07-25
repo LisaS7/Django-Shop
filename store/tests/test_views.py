@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
+from importlib import import_module
 from django.http import HttpRequest
-from django.test import Client, RequestFactory, TestCase
+from django.test import Client, TestCase
 from django.urls import reverse
+from django.conf import settings
 
 from store.models import Category, Product
 from store.views import product_all
@@ -10,7 +12,6 @@ from store.views import product_all
 class TestViewResponses(TestCase):
     def setUp(self):
         self.c = Client()
-        self.factory = RequestFactory()
         User.objects.create(username='admin')
         Category.objects.create(name='blaster', slug='blaster')
         Product.objects.create(category_id=1, item='item test', created_by_id=1,
@@ -44,15 +45,8 @@ class TestViewResponses(TestCase):
         Test homepage html contents
         """
         request = HttpRequest()
-        response = product_all(request)
-        html = response.content.decode('utf-8')
-        self.assertIn('<title>Rodian Arms - Home</title>', html)
-
-    def test_view_function(self):
-        """
-        Trying out the RequestFactory
-        """
-        request = self.factory.get('/item/item-test')
+        engine = import_module(settings.SESSION_ENGINE)
+        request.session = engine.SessionStore()
         response = product_all(request)
         html = response.content.decode('utf-8')
         self.assertIn('<title>Rodian Arms - Home</title>', html)
