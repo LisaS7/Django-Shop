@@ -11,16 +11,18 @@
 
             {% for product in products %}
             <div class="col">
-                <div class="card h-100">
-                    <div class="card-header">
-                        <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.item }}</a>
+                <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            {{ product.item }}
+                        </div>
+                        <img class="image-list" alt="Responsive image" src="{{ product.image.url }}">
+                        <div class="card-body">
+                            <p class="card-text light-font fst-italic">{{product.short_note}}</p>
+                        </div>
+                        <div class="card-footer">₹{{product.price}}</div>
                     </div>
-                    <img class="image-list" alt="Responsive image" src="{{ product.image.url }}">
-                    <div class="card-body">
-                        <p class="card-text light-font fst-italic">{{product.short_note}}</p>
-                    </div>
-                    <div class="card-footer">₹{{product.price}}</div>
-                </div>
+                </a>
             </div>
             {% endfor %}
 
