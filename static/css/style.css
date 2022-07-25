@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,100&display=swap');
 
 :root {
     --background: #212529;
@@ -24,14 +25,6 @@
 
 
 /* HOME PAGE */
-/* .image-blur-edge {
-    background-image: url('/static/store/rodian-rebel.webp');
-    box-shadow: 20 0 8px 8px var(--background);
-    height: 400px;
-    width: 400px;
-    background-size:contain;
-} */
-
 .image-shadow img{
     border:2px solid var(--background);
     box-shadow:1px 1px 10px 2px;
@@ -41,7 +34,8 @@
 /* PRODUCTS */
 
 .image-detail {
-    width: 300px;
+    max-width: 500px;
+    max-height: 400px;
 }
 
 .image-list {
@@ -50,4 +44,8 @@
     max-width: 400px; 
     max-height: 250px;
     object-fit: contain;
+}
+
+.light-font {
+    font-weight: 100;
 }
