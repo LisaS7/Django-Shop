@@ -3,6 +3,14 @@ from django.shortcuts import get_object_or_404, render
 from .models import Category, Product
 
 
+def home(request):
+    return render(request, 'store/home.html')
+
+
+def contact(request):
+    return render(request, 'store/contact.html')
+
+
 def category_list(request, category_slug: str):
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.objects.filter(category=category)
@@ -11,7 +19,7 @@ def category_list(request, category_slug: str):
 
 def product_all(request):
     products = Product.products.all()
-    return render(request, 'store/home.html', {'products': products})
+    return render(request, 'store/products/all.html', {'products': products})
 
 
 def product_detail(request, slug: str):

@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
+:root {
+    --background: #212529;
+}
+
+
 * {
     font-family: 'Kanit', sans-serif !important;
 }
 
-html {
-    background: url(../store/background.jpg) no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
 
 /* HEADER */
+/* See separate basket.css for basket styles */
 
 .navbar-brand {
     margin-right: 5rem;
@@ -22,12 +22,20 @@ html {
     height: 40px;
 }
 
-a.basket {
-    margin-top: 0.75rem;
-    margin-left: 1rem;
-    text-align: center;
-    text-decoration: none;
-}
+
+/* HOME PAGE */
+/* .image-blur-edge {
+    background-image: url('/static/store/rodian-rebel.webp');
+    box-shadow: 20 0 8px 8px var(--background);
+    height: 400px;
+    width: 400px;
+    background-size:contain;
+} */
+
+.image-shadow img{
+    border:2px solid var(--background);
+    box-shadow:1px 1px 10px 2px;
+  }
 
 
 /* PRODUCTS */
