@@ -20,3 +20,5 @@ Basket
 Users & Admin
 * Creating a custom user model.
 * Configuring the admin view display fields and filters.
+* Sending an email to validate new users.
+* Generating a password reset token.
