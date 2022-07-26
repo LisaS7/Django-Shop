@@ -61,3 +61,39 @@ class RegistrationForm(forms.ModelForm):
             {'class': 'form-control mb-3', 'placeholder': 'Password'})
         self.fields['password2'].widget.attrs.update(
             {'class': 'form-control', 'placeholder': 'Repeat Password'})
+
+
+class UserEditForm(forms.ModelForm):
+
+    email = forms.EmailField(
+        label='Account email', max_length=200, widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'email', 'id': 'form-email'}))
+
+    user_name = forms.CharField(
+        label='Username', min_length=4, max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control mb-3',
+                'placeholder': 'Username',
+                'id': 'form-username',
+                'readonly': 'readonly'}
+                ))
+
+    first_name = forms.CharField(
+        label='First name', min_length=4, max_length=50, widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Firstname', 'id': 'form-firstname'}))
+
+    class Meta:
+        model = UserBase
+        fields = ('email', 'user_name', 'first_name',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['user_name'].required = True
+        self.fields['email'].required = True
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('user_name')
+        if UserBase.objects.filter(email=email).exclude(user_name__iexact=username).exists():
+            raise forms.ValidationError('Email already in use')
