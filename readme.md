@@ -18,7 +18,7 @@ Basket
 * Using Ajax to dynamically update the number of items in the basket and the totals on the basket summary page.
 
 Users & Admin
-* Creating a custom user model.
-* Configuring the admin view display fields and filters.
+* Overriding Django's built in user functionality to create a custom user model, forms, and views.
 * Sending an email to validate new users.
 * Generating a password reset token.
+* Configuring the admin view display fields and filters.

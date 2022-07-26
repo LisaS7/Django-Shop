@@ -7,3 +7,7 @@
     border-color: #1497ff;
     box-shadow: none;
 }
+
+.container-fluid {
+    max-width: 100%;
+}
