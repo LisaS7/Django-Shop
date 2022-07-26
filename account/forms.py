@@ -97,3 +97,26 @@ class UserEditForm(forms.ModelForm):
         username = self.cleaned_data.get('user_name')
         if UserBase.objects.filter(email=email).exclude(user_name__iexact=username).exists():
             raise forms.ValidationError('Email already in use')
+
+
+class PwdResetForm(PasswordResetForm):
+
+    email = forms.EmailField(max_length=254, widget=forms.TextInput(
+        attrs={'class': 'form-control mb-3', 'placeholder': 'Email', 'id': 'form-email'}))
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        user = UserBase.objects.filter(email=email)
+        if not user:
+            raise forms.ValidationError(
+                'Sorry, we cannot find that account')
+        return email
+
+
+class PwdResetConfirmForm(SetPasswordForm):
+    new_password1 = forms.CharField(
+        label='New password', widget=forms.PasswordInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'New Password', 'id': 'form-newpass'}))
+    new_password2 = forms.CharField(
+        label='Repeat password', widget=forms.PasswordInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'New Password', 'id': 'form-new-pass2'}))
