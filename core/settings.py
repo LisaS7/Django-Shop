@@ -12,13 +12,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+
 import django_on_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = os.environ.get('DEBUG_VALUE')
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['testdomain.com', '127.0.0.1', 'localhost', 'rodian-arms-shop.herokuapp.com']
 
@@ -70,9 +71,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'store_db',
-#         'USER': 'admin',
-#         'PASSWORD': 'password1',
+#         'NAME': 'db_name',
+#         'USER': 'testuser',
+#         'PASSWORD': 'test',
 #         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
