@@ -19,7 +19,7 @@
                 <h3 class="mb-3">Billing address</h3>
                 <!-- Error messages in this element -->
                 <div id="card-errors" class="a" role="alert"></div>
-                <form>
+                <form id="payment-form" data-url="{% url "orders:add" %}">
                   <div class="row g-3">
                     <div class="col-sm-7">
                       <label for="firstName" class="form-label">Customer Name</label>
@@ -59,12 +59,11 @@
                   </div>
                   <hr class="my-4">
                   <h4 class="mb-3">Payment</h4>
-                  <label for="card-element">Credit card or chip</label>
-                  <div id="card-element" class="form-control form-control-payment">
-                    <!-- Payment elements will appear here -->
-                  </div>
+                  <label for="card-element">Credit chip</label>
+                  <input type="text" class="form-control" placeholder="Enter a valid credit chip number" required>
+
                   <hr class="my-4">
-                  <button id="submit" class="btn btn-primary w-100 fw-bold" data-secret="{{ client_secret }}">Pay</button>
+                  <button id="submit" class="btn btn-primary m-2">Pay</button> {% comment %}  href="{% url "payment:order_placed" %}"  {% endcomment %}
                 </form>
               </div>
             </div>
@@ -73,13 +72,11 @@
       </div>
     </div>
   </div>
-  
-  
-  <script>
-      {% comment %} Make csrf token availble in JS files {% endcomment %}
-      var CSRF_TOKEN = '{{ csrf_token }}';
-  </script>
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="{% static 'payment/index.js' %}" data-rel-js></script>
+
+<script>
+    {% comment %} Make csrf token available in JS files {% endcomment %}
+    var CSRF_TOKEN = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/payment.js' %}" data-rel-js></script>
 
 {% endblock %}

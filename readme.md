@@ -3,7 +3,7 @@ A Django ecommerce site for a Star Wars fictional weapons trader.
 [Heroku app](https://rodian-arms-shop.herokuapp.com)
 (Some functionality missing on mobile at the moment)
 
-I had minimal experience with Django so a structured tutorial felt like it would be useful as a refresher and to fill in some areas of knowledge that I hadn't covered yet. I decided to stick with the Star Wars theme used in a previous small project. Following this tutorial has helped me to understand how to better organise a Django app and the deployment process.
+I had minimal experience with Django so a structured tutorial felt like it would be useful as a refresher and to fill in some areas of knowledge that I hadn't covered yet. I've continued with the Star Wars theme used in a previous small project. Following this tutorial has helped me to understand how to better organise a Django app and the deployment process.
 
 
 ### What I learned:
@@ -24,6 +24,9 @@ Users & Admin
 * Overriding Django's built in user functionality to create a custom user model, forms, and views.
 * Sending an email with a unique token to validate new users or reset passwords.
 * Configuring the admin view display fields and filters.
+
+Payment
+* I watched through the chapter of the tutorial for handling payments through Stripe but I decided not to include that in my app since this is a fictional shop.
 
 Deployment
 * Moving secret keys and other private data to environment variables using the Ubuntu .profile file.

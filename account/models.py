@@ -35,7 +35,7 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=150, blank=True)
     last_name = models.CharField(max_length=150, blank=True)
 
-    # Delivery details
+    # Contact details
     address = models.CharField(max_length=150, blank=True)
     city = models.CharField(max_length=150, blank=True)
     planet = models.CharField(max_length=150, blank=True)
