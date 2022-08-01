@@ -8,6 +8,10 @@
     box-shadow: none;
 }
 
+.form-control {
+    border: 2px solid #ccc;
+}
+
 .container-fluid {
     max-width: 100%;
 }

@@ -64,7 +64,7 @@ class UserBase(AbstractBaseUser, PermissionsMixin):
         send_mail(
             subject,
             message,
-            'l@1.com',
+            'test@test.com',
             [self.email],
             fail_silently=False,
         )
