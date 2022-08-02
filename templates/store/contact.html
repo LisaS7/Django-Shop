@@ -1,38 +1,52 @@
-{% extends "./base.html" %} 
-{% block title %}Rodian Arms - Contact{% endblock%}
-
+{% extends "./base.html" %}
+{% block title %}
+  Contact Us
+{% endblock title %}
 {% block content %}
-
-<main class="bg-dark text-light">
+  <main class="bg-dark text-light">
     <div class="p-5 mb-4 rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Get in touch</h1>
-          <p class="col-md-8 fs-4">Want to trade? Buying in bulk? Need advice?<br>We'd love to hear from you!</p>
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Get in touch</h1>
+        <p class="col-md-8 fs-4">
+          Want to trade? Buying in bulk? Need advice?
+          <br />
+          We'd love to hear from you!
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-around px-5 pb-5">
+      <div class="col-md-4">
+        <div class="h-100 p-5 text-bg-secondary rounded-3">
+          <h2>Say Hello!</h2>
+          <p>Reach us via commlink on the lines below:</p>
+          <p>
+            General queries:  ER506-2222
+            <br />
+            Trade enquiries:  ER506-2232
+            <br />
+            Technical support:  ER506-2236
+            <br />
+          </p>
         </div>
       </div>
-  
-      <div class="row justify-content-around px-5 pb-5">
-        <div class="col-md-4">
-          <div class="h-100 p-5 text-bg-secondary rounded-3">
-            <h2>Say Hello!</h2>
-            <p>Reach us via commlink on the lines below:</p>
-            <p>
-                General queries:  ER506-2222<br>
-                Trade enquiries:  ER506-2232<br>
-                Technical support:  ER506-2236<br>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="h-100 p-5 text-bg-secondary rounded-3">
-            <h2>Visit our store</h2>
-            <p>Catch the shuttlecraft across the Hydian Way. You'll find us at the address below.</p>
-            <p>Unit 27B-VC<br>Kallea Path<br>Commerce District<br>Eriadu</p>
-            <a href="https://starwars.fandom.com/wiki/Hydian_Way/Legends"><button class="btn btn-outline-dark" type="button">Route Map</button></a>
-        </div>
+      <div class="col-md-4">
+        <div class="h-100 p-5 text-bg-secondary rounded-3">
+          <h2>Visit our store</h2>
+          <p>Catch the shuttlecraft across the Hydian Way. You'll find us at the address below.</p>
+          <p>
+            Unit 27B-VC
+            <br />
+            Kallea Path
+            <br />
+            Commerce District
+            <br />
+            Eriadu
+          </p>
+          <a href="https://starwars.fandom.com/wiki/Hydian_Way/Legends">
+            <button class="btn btn-outline-dark" type="button">Route Map</button>
+          </a>
         </div>
       </div>
-    
-</main>
-
-{% endblock %}
+    </div>
+  </main>
+{% endblock content %}

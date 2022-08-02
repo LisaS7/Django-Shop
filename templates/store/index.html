@@ -1,36 +1,39 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8" />
-    <title>{% block title %}Rodian Arms{% endblock %}</title>
-    <meta name="viewport" content="width-device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <meta name="description" content="Star Wars weapons dealer" />
+    <meta name="keywords" content="star wars rodian" />
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>Rodian Arms - Blaster Dealer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</head>
-
-<title>Rodian Arms - Home</title>
-
-<main class="bg-dark text-light">
+  </head>
+  <title>Rodian Arms - Home</title>
+  <main class="bg-dark text-light">
     <section class="py-3 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="">Rodian Arms</h1>
-
-                <div class="image-shadow m-5">
-                    <img src="{% static "store/rodian-rebel.jpg" %}">
-                </div>
-
-                <h3 class="mb-4">Eriadu's #1 Weapon Trader</h3>
-                <p class="fst-italic">There's no match for a good blaster at your side!</p>
-                <p>
-                    <a href="{% url "store:product_all" %}" class="btn btn-primary m-2">Shop Online</a>
-                    <a href="{% url "store:contact" %}" class="btn btn-secondary m-2">Contact Us</a>
-                </p>
-            </div>
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1>Rodian Arms</h1>
+          <div class="image-shadow m-5">
+            <img src="{% static "store/rodian-rebel.jpg" %}"
+                 height="300"
+                 width="300"
+                 alt="Rodian rebel blaster image"/>
+          </div>
+          <h3 class="mb-4">Eriadu's #1 Weapon Trader</h3>
+          <p class="fst-italic">There's no match for a good blaster at your side!</p>
+          <p>
+            <a href="{% url "store:product_all" %}" class="btn btn-primary m-2">Shop Online</a>
+            <a href="{% url "store:contact" %}" class="btn btn-secondary m-2">Contact Us</a>
+          </p>
         </div>
+      </div>
     </section>
-</main>
+  </main>
+</html>
