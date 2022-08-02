@@ -1,4 +1,4 @@
-#basket-quantity{
+#basket-quantity {
     color: #fff;
     background: #9199ad;
     border: 2px solid #fff;
@@ -18,12 +18,20 @@
     right: 10px;
 }
 
-.basket-btn{
+.quantity-dropdown {
+    width: 50px;
+    height: 31px;
+}
+
+.basket-btn {
     position: relative;
 }
 
-.basket-btn:hover, .basket-btn:focus, .basket-btn:active, .basket-btn.active{
-    color:#d42114;
+.basket-btn:hover,
+.basket-btn:focus,
+.basket-btn:active,
+.basket-btn.active {
+    color: #d42114;
     transition-duration: 0.4s;
     background-color: #fff;
 }

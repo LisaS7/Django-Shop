@@ -10,6 +10,10 @@
     font-family: 'Kanit', sans-serif !important;
 }
 
+.container {
+    max-width: 1000px;
+}
+
 
 /* HEADER */
 /* See separate basket.css for basket styles */
@@ -25,10 +29,10 @@
 
 
 /* HOME PAGE */
-.image-shadow img{
-    border:2px solid var(--background);
-    box-shadow:1px 1px 10px 2px;
-  }
+.image-shadow img {
+    border: 2px solid var(--background);
+    box-shadow: 1px 1px 10px 2px;
+}
 
 
 /* PRODUCTS */
@@ -39,9 +43,9 @@
 }
 
 .image-list {
-    height: auto; 
-    width: auto; 
-    max-width: 400px; 
+    height: auto;
+    width: auto;
+    max-width: 400px;
     max-height: 250px;
     object-fit: contain;
 }
