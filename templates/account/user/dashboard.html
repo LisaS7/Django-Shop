@@ -10,7 +10,7 @@
         <h1 class="h2">Your Dashboard</h1>
       </div>
       <div class="col-12 d-flex justify-content-between">
-        <div>Manage your <b>orders</b> and personal details</div>
+        <div>Manage your orders and personal details</div>
         <div><a href="{% url "account:edit_details" %}">Change Details</a></div>
       </div>
       <hr />
@@ -25,23 +25,20 @@
             <div class="pe-3">{{ order.created }}</div>
             <div class="dropdown">
             <a class="text-reset text-decoration-none dropdown-toggle" href="#" role="link" id="dropdownLink" data-bs-toggle="dropdown" aria-expanded="false">
-            Dispacted to 
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-            </svg>
+            Dispatched to 
             </a>
   
             <ul class="dropdown-menu" aria-labelledby="dropdownLink">
               <li class="item small">{{order.full_name}}</li>
-              <li class="item small">{{order.address1}}</li>
-              <li class="item small">{{order.address2}}</li>
-              <li class="item small">{{order.post_code}}</li>
+              <li class="item small">{{order.address}}</li>
+              <li class="item small">{{order.city}}</li>
+              <li class="item small">{{order.planet}}</li>
             </ul>
             </div>
   
           </div>
           <div class="text-end">
-            Total paid: <span class="fw-bold">£{{ order.total_paid }}</span>
+            Total paid: <span class="fw-bold">₹{{ order.total_paid }}</span>
           </div>
         </div>
         <div class="col-md-5 col-lg-4 order-md-last p-0 order-3">
@@ -65,6 +62,7 @@
                   <a class="text-decoration-none" href="{{ item.product.get_absolute_url }}">
                     <p class="card-text small">{{item.product|title}}</p>
                   </a>
+                  <p class="card-text small">Quantity: {{item.quantity}}</p>
                 </div>
               </div>
             </div>
