@@ -4,9 +4,7 @@
     {{ product.item }}
 {% endblock title %}
 {% block stylesheet %}
-    <link rel="stylesheet"
-          type="text/css"
-          href="{% static 'store/store.css' %}"/>
+    {% static 'store/store.css' %}
 {% endblock stylesheet %}
 {% block content %}
     <div class="container">

@@ -1,9 +1,7 @@
-{% extends "../../base.html" %}
+{% extends "../base.html" %}
 {% load static %}
 {% block stylesheet %}
-    <link rel="stylesheet"
-          type="text/css"
-          href="{% static 'account/form.css' %}"/>
+    {% static 'account/form.css' %}
 {% endblock stylesheet %}
 {% block title %}
     Login
