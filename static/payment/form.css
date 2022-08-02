@@ -1,0 +1,12 @@
+.form-control {
+    border: 2px solid #ccc;
+}
+
+.form-control input:focus {
+    border-color: #1497ff;
+    box-shadow: none;
+}
+
+.container-fluid {
+    max-width: 100%;
+}

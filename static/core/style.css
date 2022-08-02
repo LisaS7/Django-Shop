@@ -16,7 +16,6 @@
 
 
 /* HEADER */
-/* See separate basket.css for basket styles */
 
 .navbar-brand {
     margin-right: 5rem;
@@ -32,26 +31,6 @@
 .image-shadow img {
     border: 2px solid var(--background);
     box-shadow: 1px 1px 10px 2px;
-}
-
-
-/* PRODUCTS */
-
-.image-detail {
-    max-width: 500px;
-    max-height: 400px;
-}
-
-.image-list {
-    height: auto;
-    width: auto;
-    max-width: 400px;
-    max-height: 250px;
-    object-fit: contain;
-}
-
-.light-font {
-    font-weight: 100;
 }
 
 /* DASHBOARD */

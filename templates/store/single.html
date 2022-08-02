@@ -1,62 +1,68 @@
 {% extends "../base.html" %}
 {% load static %}
+{% block title %}
+    {{ product.item }}
+{% endblock title %}
+{% block stylesheet %}
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'store/store.css' %}"/>
+{% endblock stylesheet %}
 {% block content %}
     <div class="container">
-        <main class="pt-5">
-            <div class="row g-3">
-                <div class="col-md-5 col-lg-5">
-                    <img class="image-detail img-fluid mx-auto d-block"
-                         height="300"
-                         width="300"
-                         alt="Product image"
-                         src="{{ product.image.url }}"/>
+        <div class="row g-3">
+            <div class="col-md-5 col-lg-5">
+                <img class="image-detail img-fluid mx-auto d-block"
+                     height="300"
+                     width="300"
+                     alt="Product image"
+                     src="{{ product.image.url }}"/>
+            </div>
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+                <h1 class="mb-0 h4">{{ product.item }}</h1>
+                <p>
+                    <span class="lead">{{ product.short_note }}</span>
+                </p>
+                <div class="light-font fst-italic">
+                    <p>{{ product.description|linebreaks }}</p>
                 </div>
-                <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
-                    <h1 class="mb-0 h4">{{ product.item }}</h1>
-                    <p>
-                        <span class="lead">{{ product.short_note }}</span>
-                    </p>
-                    <div class="light-font fst-italic">
-                        <p>{{ product.description|linebreaks }}</p>
-                    </div>
-                    <div class="col border-bottom">
-                        <div class="row p-3">
-                            <div class="col-6">
-                                <span class="h4 fw-bold">{{ default_currency }}{{ product.price }}</span>
-                            </div>
-                            <div class="col-6 text-end">
-                                <label for="select">Quantity</label>
-                                <select id="select">
-                                    <option value="1">
-                                        1
-                                    </option>
-                                    <option value="2">
-                                        2
-                                    </option>
-                                    <option value="3">
-                                        3
-                                    </option>
-                                    <option value="4">
-                                        4
-                                    </option>
-                                </select>
-                            </div>
+                <div class="col border-bottom">
+                    <div class="row p-3">
+                        <div class="col-6">
+                            <span class="h4 fw-bold">{{ default_currency }}{{ product.price }}</span>
+                        </div>
+                        <div class="col-6 text-end">
+                            <label for="select">Quantity</label>
+                            <select id="select" class="quantity-dropdown">
+                                <option value="1">
+                                    1
+                                </option>
+                                <option value="2">
+                                    2
+                                </option>
+                                <option value="3">
+                                    3
+                                </option>
+                                <option value="4">
+                                    4
+                                </option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="row p-3">
-                            <button type="button"
-                                    id="add-button"
-                                    value="{{ product.id }}"
-                                    class="btn btn-secondary btn-sm"
-                                    data-url="{% url "store_basket:basket_add" %}">
-                                Add to basket
-                            </button>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="row p-3">
+                        <button type="button"
+                                id="add-button"
+                                value="{{ product.id }}"
+                                class="btn btn-secondary btn-sm"
+                                data-url="{% url "store_basket:basket_add" %}">
+                            Add to basket
+                        </button>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 {% endblock content %}
 {% block scripts %}
@@ -64,5 +70,5 @@
     {% comment %} Make csrf token available in JS files {% endcomment %}
     var CSRF_TOKEN = '{{ csrf_token }}';
     </script>
-    <script src="{% static 'js/store.js' %}" data-rel-js></script>
+    <script src="{% static 'store/store.js' %}" data-rel-js></script>
 {% endblock scripts %}

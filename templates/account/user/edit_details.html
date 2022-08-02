@@ -4,7 +4,9 @@
     Edit Profile
 {% endblock title %}
 {% block stylesheet %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'account/form.css' %}"/>
 {% endblock stylesheet %}
 {% block content %}
     <div class="container-fluid">
@@ -14,7 +16,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-7  mx-auto">
-                                <form class="account-form px-4 pt-4"
+                                <form class="form-control px-4 pt-4"
                                       method="post"
                                       enctype="multipart/form-data">
                                     {% if user_form.is_valid %}
@@ -41,7 +43,7 @@
                                     </button>
                                     <hr class="mb-3" />
                                 </form>
-                                <form class="account-form px-4"
+                                <form class="form-control px-4"
                                       action="{% url "account:delete_user" %}"
                                       method="post">
                                     {% csrf_token %}

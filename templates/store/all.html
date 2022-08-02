@@ -1,32 +1,45 @@
 {% extends "../base.html" %}
+{% load static %}
 {% block title %}
     Rodian Arms - All Products
 {% endblock title %}
+{% block stylesheet %}
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'store/store.css' %}"/>
+{% endblock stylesheet %}
 {% block content %}
     <div class="album py-5">
         <div class="container">
             <div class="pb-3 h5">Top Products</div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
-                {% for product in products %}
-                    <div class="col">
-                        <a class="text-dark text-decoration-none"
-                           href="{{ product.get_absolute_url }}">
-                            <div class="card h-100">
-                                <div class="card-header">{{ product.item }}</div>
-                                <img class="image-list"
-                                     height="300"
-                                     width="300"
-                                     alt="Product image"
-                                     src="{{ product.image.url }}"/>
-                                <div class="card-body">
-                                    <p class="card-text light-font fst-italic">{{ product.short_note }}</p>
+            {% if not products %}
+                <div class="col-12">
+                    <p>Sorry, there is currently nothing in stock.</p>
+                    <p>Please check back later.</p>
+                </div>
+            {% else %}
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+                    {% for product in products %}
+                        <div class="col">
+                            <a class="text-dark text-decoration-none"
+                               href="{{ product.get_absolute_url }}">
+                                <div class="card h-100">
+                                    <div class="card-header">{{ product.item }}</div>
+                                    <img class="image-list"
+                                         height="300"
+                                         width="300"
+                                         alt="Product image"
+                                         src="{{ product.image.url }}"/>
+                                    <div class="card-body">
+                                        <p class="card-text light-font fst-italic">{{ product.short_note }}</p>
+                                    </div>
+                                    <div class="card-footer">{{ default_currency }}{{ product.price }}</div>
                                 </div>
-                                <div class="card-footer">{{ default_currency }}{{ product.price }}</div>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock content %}

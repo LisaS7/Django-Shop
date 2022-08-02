@@ -1,12 +1,14 @@
 {% load static %}
 {% block stylesheet %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/basket.css' %}" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'basket/basket.css' %}"/>
 {% endblock stylesheet %}
 <nav class="navbar navbar-expand-md navbar-light bg-light border-bottom">
   <div class="container-fluid">
     <a class="navbar-brand text-center pt-3" href="{% url "store:home" %}">
       <img class="logo-image"
-           src="{% static 'store/logo2.png' %}"
+           src="{% static 'store/images/logo2.png' %}"
            width="100"
            height="100"
            alt="Rodian Arms logo"/>
@@ -104,7 +106,7 @@
       </a>
       <a class="basket-btn" href="{% url "store_basket:basket_summary" %}">
         <img class="basket-img mx-3"
-             src="{% static 'store/basket_icon.png' %}"
+             src="{% static 'store/images/basket_icon.png' %}"
              height="50"
              width="50"
              alt="basket image"/>

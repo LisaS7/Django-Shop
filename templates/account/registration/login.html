@@ -1,7 +1,9 @@
 {% extends "../../base.html" %}
 {% load static %}
 {% block stylesheet %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'account/form.css' %}"/>
 {% endblock stylesheet %}
 {% block title %}
     Login
@@ -14,7 +16,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 col-lg-6  mx-auto">
-                                <form class="account-form p-4 rounded"
+                                <form class="form-control p-4 rounded"
                                       action="{% url 'account:login' %}"
                                       method="post">
                                     {% csrf_token %}

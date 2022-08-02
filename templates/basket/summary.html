@@ -128,5 +128,5 @@
     {% comment %} Make csrf token available in JS files {% endcomment %}
     var CSRF_TOKEN = '{{ csrf_token }}';
     </script>
-    <script src="{% static 'js/basket.js' %}" data-rel-js></script>
+    <script src="{% static 'basket/basket.js' %}" data-rel-js></script>
 {% endblock scripts %}

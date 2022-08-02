@@ -1,0 +1,23 @@
+/* PRODUCTS */
+
+.image-detail {
+    max-width: 500px;
+    max-height: 400px;
+}
+
+.image-list {
+    height: auto;
+    width: auto;
+    max-width: 400px;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.light-font {
+    font-weight: 100;
+}
+
+.quantity-dropdown {
+    width: 50px;
+    height: 40px;
+}

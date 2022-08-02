@@ -1,7 +1,9 @@
 {% extends "../base.html" %}
 {% load static %}
 {% block head %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'payment/form.css' %}"/>
 {% endblock head %}
 {% block title %}
   Payment
@@ -97,5 +99,5 @@
     {% comment %} Make csrf token available in JS files {% endcomment %}
     var CSRF_TOKEN = '{{ csrf_token }}';
   </script>
-  <script src="{% static 'js/payment.js' %}" data-rel-js></script>
+  <script src="{% static 'payment/payment.js' %}" data-rel-js></script>
 {% endblock content %}
