@@ -31,6 +31,7 @@ function make_key(length) {
       address: custAdd,
       city: custCity,
       planet: custPlanet,
+      commlink: custCommlink,
       csrfmiddlewaretoken: CSRF_TOKEN,
       action: "post",
     },

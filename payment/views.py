@@ -6,15 +6,10 @@ from store_basket.basket import Basket
 
 @login_required
 def BasketView(request):
-    basket = Basket(request)
-    total = basket.get_total_price()
-
-    client_payment = {'payment_method': 0}
-
-    return render(request, 'payment/main.html', client_payment)
+    return render(request, 'payment/main.html')
 
 
 def order_placed(request):
-    # basket = Basket(request)
-    # basket.clear()
+    basket = Basket(request)
+    basket.clear()
     return render(request, 'payment/orderplaced.html')

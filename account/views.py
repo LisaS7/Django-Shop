@@ -11,14 +11,14 @@ from .forms import RegistrationForm, UserEditForm
 from .models import UserBase
 from .token import account_activation_token
 
-# from orders.views import user_orders
+from orders.views import user_orders
 
 
 @login_required
 def dashboard(request):
-    # orders = user_orders(request)
+    orders = user_orders(request)
     # TODO: BUILD DASHBOARD PAGE
-    return render(request, 'account/user/dashboard.html')  # {'section': 'profile', 'orders': orders}
+    return render(request, 'account/user/dashboard.html', {'orders': orders})  # {'section': 'profile', 
 
 
 @login_required

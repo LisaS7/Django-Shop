@@ -3,6 +3,9 @@ from decimal import Decimal
 from store.models import Product
 
 
+# TODO: move session key to settings
+
+
 class Basket:
     """
     A base basket class providing default behaviours to be inherited or overriden as necessary.
@@ -70,6 +73,13 @@ class Basket:
 
     def save(self) -> None:
         self.session.modified = True
+
+    def clear(self) -> None:
+        """
+        Remove basket from session
+        """
+        del self.session['session-key']
+        self.save()
 
     def get_subtotal_price(self):
         return sum(Decimal(item['price']) * item['quantity'] for item in self.basket.values())

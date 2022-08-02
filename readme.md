@@ -26,7 +26,7 @@ Users & Admin
 * Configuring the admin view display fields and filters.
 
 Payment
-* I watched through the chapter of the tutorial for handling payments through Stripe but I decided not to include that in my app since this is a fictional shop.
+* I watched through the chapter of the tutorial for handling payments through Stripe but I decided not to include a real payment system for my fictional shop.
 
 Deployment
 * Moving secret keys and other private data to environment variables using the Ubuntu .profile file.
