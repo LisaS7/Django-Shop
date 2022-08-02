@@ -1,24 +1,25 @@
 {% extends "../base.html" %}
-{% block title %}Order Confirmation{% endblock %}
+{% block title %}
+    Order Confirmation
+{% endblock title %}
 {% block content %}
-
-<div class="container-fluid">
-    <div class="row no-gutter">
-        <div class="col-md-12">
-            <div class="login d-flex align-items-center py-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6  mx-auto">
-                            <div class="p-4">
-                                <h3 class="mb-4">Order has been placed</h3>
-                                {% comment %} <p>Check your email for confirmation</p> {% endcomment %}
-                                <a href="{% url "account:dashboard" %}">See orders</a>
-                            </div>       
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-md-12">
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-6  mx-auto">
+                                <div class="p-4">
+                                    <h3 class="mb-4">Order has been placed</h3>
+                                    {% comment %} <p>Check your email for confirmation</p> {% endcomment %}
+                                    <a href="{% url "account:dashboard" %}">See orders</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+{% endblock content %}

@@ -53,3 +53,8 @@
 .light-font {
     font-weight: 100;
 }
+
+/* DASHBOARD */
+.image-small {
+    width: 90px;
+}
