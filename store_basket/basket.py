@@ -1,9 +1,8 @@
 from decimal import Decimal
 
+from django.conf import settings
+
 from store.models import Product
-
-
-# TODO: move session key to settings
 
 
 class Basket:
@@ -13,9 +12,9 @@ class Basket:
 
     def __init__(self, request) -> None:
         self.session = request.session
-        basket = self.session.get('session-key')
-        if 'session-key' not in self.session:
-            basket = self.session['session-key'] = {}
+        basket = self.session.get(settings.BASKET_SESSION_ID)
+        if settings.BASKET_SESSION_ID not in self.session:
+            basket = self.session[settings.BASKET_SESSION_ID] = {}
         self.basket = basket
 
     def __len__(self):
@@ -78,7 +77,7 @@ class Basket:
         """
         Remove basket from session
         """
-        del self.session['session-key']
+        del self.session[settings.BASKET_SESSION_ID]
         self.save()
 
     def get_subtotal_price(self):
