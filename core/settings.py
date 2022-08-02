@@ -62,7 +62,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'store.context_processors.categories',
-                'store_basket.context_processors.basket'
+                'store.context_processors.currency',
+                'store_basket.context_processors.basket',
             ],
         },
     },
@@ -123,8 +124,9 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Basket session ID
+# Custom app settings
 BASKET_SESSION_ID = 'rodian-basket'
+DEFAULT_CURRENCY = '₹'
 
 
 # Custom user model

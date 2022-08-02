@@ -32,9 +32,9 @@
               </div>
               <div class="text-end">
                 
-                <div class="">Sub Total: <span class="fw-bold">₹</span><div id="subtotal" class="d-inline-flex fw-bold">{{basket.get_subtotal_price}}</div></div>
-                <div id="">Shipping <span class="small">(Next day delivery)</span>: <span class="fw-bold">₹30</span></div>
-                <div class="pt-2">Total to pay: <span class="fw-bold h5">₹</span><span id="total" class="fw-bold h5">{{basket.get_total_price}}</span></div>
+                <div class="">Sub Total: <span class="fw-bold">{{default_currency}}</span><div id="subtotal" class="d-inline-flex fw-bold">{{basket.get_subtotal_price}}</div></div>
+                <div id="">Shipping <span class="small">(Next day delivery)</span>: <span class="fw-bold">{{default_currency}}30</span></div>
+                <div class="pt-2">Total to pay: <span class="fw-bold h5">{{default_currency}}</span><span id="total" class="fw-bold h5">{{basket.get_total_price}}</span></div>
                 
               </div>
             </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="col-6 text-end">
-                                <span class="h4 fw-bold">₹<div id="item-subtotal{{product.id}}" class="d-inline-flex">{{ item.total_price }}</div></span>
+                                <span class="h4 fw-bold">{{default_currency}}<div id="item-subtotal{{product.id}}" class="d-inline-flex">{{ item.total_price }}</div></span>
                             </div>
                         </div>
                         <div class="col-md-3">
