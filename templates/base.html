@@ -15,10 +15,13 @@
           rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
           crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'core/style.css' %}" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'core/header.css' %}"/>
     <link rel="stylesheet"
           type="text/css"
           href="{% block stylesheet %}{% endblock stylesheet %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'core/style.css' %}" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
   <body>
