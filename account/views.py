@@ -1,7 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
@@ -43,8 +42,8 @@ def delete_user(request):
 
 
 def account_register(request):
-    # if request.user.is_authenticated:
-    #     return redirect('/')  # account:dashboard
+    if request.user.is_authenticated:
+        return redirect('account:dashboard')
 
     if request.method == 'POST':
         registerForm = RegistrationForm(request.POST)
@@ -68,7 +67,7 @@ def account_register(request):
                     'token': account_activation_token.make_token(user),
                 })
             user.email_user(subject=subject, message=message)
-            return HttpResponse('Registration succesful! Activation email sent.')
+            return render(request, 'account/registration/register_email_confirm.html')
 
     else:
         registerForm = RegistrationForm()
