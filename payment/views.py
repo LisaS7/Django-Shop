@@ -6,7 +6,7 @@ from store_basket.basket import Basket
 
 @login_required
 def BasketView(request):
-    return render(request, 'payment/main.html')
+    return render(request, 'payment/payment_form.html')
 
 
 def order_placed(request):
